@@ -9,5 +9,3 @@ OR
 
 #TODO:
 * Add exception handling
-* Add additional functions
-* Add option to add Program to PATH for easier access from e.g the start menu
