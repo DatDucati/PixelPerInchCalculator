@@ -15,25 +15,45 @@ namespace Pixel_Per_Inch_Calculator
         {
             if (args.Length == 0)
             {
-                Console.WriteLine(_XPixel);
-                int.TryParse(Console.ReadLine(),out _xpixels);
-                Console.WriteLine(_YPixels);
-                int.TryParse(Console.ReadLine(), out _ypixels);
-                Console.WriteLine(_screensize);
-                double.TryParse(Console.ReadLine(), out _inches);
-                Console.WriteLine("Your screen has a PPI of "+Math.Sqrt((_xpixels*_xpixels)+(_ypixels*_ypixels))/_inches);
+                try
+                {
+                    Console.WriteLine(_XPixel);
+                    _xpixels = int.Parse(Console.ReadLine());
+                    Console.WriteLine(_YPixels);
+                    _ypixels = int.Parse(Console.ReadLine());
+                    Console.WriteLine(_screensize);
+                    _inches = double.Parse(Console.ReadLine());
+                    Console.WriteLine("Your screen has a PPI of " + CalculateDpi());
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
             }
             else
             {
                 if (args.Length == 3)
                 {
-                    int.TryParse(args[0], out _xpixels);
-                    int.TryParse(args[1], out _ypixels);
-                    double.TryParse(args[2], out _inches);
-                    Console.WriteLine("Your screen has a PPI of " + Math.Sqrt((_xpixels * _xpixels) + (_ypixels * _ypixels)) / _inches);
+                    try
+                    {
+                        _xpixels = int.Parse(args[0]);
+                        _xpixels = int.Parse(args[1]);
+                        _inches = double.Parse(args[2]);
+                        Console.WriteLine("Your screen has a PPI of " + CalculateDpi());
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                    }
                 }
             }
+            
             Console.ReadKey();
+        }
+
+        static double CalculateDpi()
+        {
+            return Math.Sqrt((_xpixels*_xpixels) + (_ypixels*_ypixels))/_inches;
         }
     }
 }
