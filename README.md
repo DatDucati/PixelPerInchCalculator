@@ -6,6 +6,3 @@ Calculates the DPI/PPI of any given resolution at any given screensize.
 
 OR
 * PixelPerInchCalculator.exe -XRES -YRES -INCHES
-
-#TODO:
-* Add exception handling
